@@ -1,0 +1,82 @@
+<%= form_with(model: recipe, local: true) do |form| %>
+  <% if recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :recipe_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :recipe_description %>
+  </div>
+
+
+
+
+
+  <div class="form-group">
+
+
+  <h3>Add Ingredients</h3>
+
+
+    <%= form.nested_fields_for :ingredients do |ingredient| %>
+
+
+      <%= ingredient.text_field :content %>
+
+
+      <%= ingredient.remove_nested_fields_link %>
+
+
+    <% end %>
+
+
+      <%= form.add_nested_fields_link :ingredients %>
+
+
+  </div>
+
+
+ 
+
+
+  <div class="form-group">
+
+
+  <h3>Add Steps</h3>
+
+
+    <%= form.nested_fields_for :steps do |step| %>
+
+
+      <%= step.text_field :direction %>
+
+
+      <%= step.remove_nested_fields_link %>
+
+
+    <% end %>
+
+
+      <%= form.add_nested_fields_link :steps %>
+
+
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
