@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+
+<% if @recipe.image? %>
+<%= image_tag @recipe.image.url, class: "recipe-show" %>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @recipe.title %>
