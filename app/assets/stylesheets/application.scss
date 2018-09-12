@@ -14,7 +14,27 @@
  */
  @import "bootstrap";
 img.recipe-show {
-	
+
 width: 400px;
 height: auto;
+}
+
+.recipe-box{
+	box-shadow: 5px 10px #888888;
+	height: 500px;
+	position: relative;
+	background: #bdc3c7;
+}
+img.recipe-index {
+	width: 100%;
+	height: 70%;
+	object-fit: cover;
+}
+.recipe-box ul {
+	list-style-type: none;
+	position: absolute;
+	bottom: 0;
+}
+.recipe-box li:first-child{
+	font-size: 24px;
 }
