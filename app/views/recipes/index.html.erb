@@ -1,7 +1,8 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Recipes</h1>
+
+<h1>Recipes made easy</h1>
   <div class="row">
   <% @recipes.each do |recipe| %>
   <div class="col-md-4">
@@ -9,18 +10,19 @@
       <% if recipe.image? %>
        <%= link_to (image_tag recipe.image.url, class: "recipe-index"), recipe %>
       <% end %>
+      
        <ul>
+       
        <li><%= recipe.title %></li>
       <li><%= recipe.description %></li>
-      <li><%= link_to 'Show', recipe %>
-      <%= link_to 'Edit', edit_recipe_path(recipe) %>
-      <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %> </li>
+      <li><%= link_to 'Show', recipe, class: "btn btn-dark" %>
+      <%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-dark" %>
+      <%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark" %> </li>
       </ul>
-     </div>
+    </div>  
    </div>
   <% end %>
 </div> <!--/row-->
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
 </div>

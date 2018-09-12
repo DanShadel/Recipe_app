@@ -10,7 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-
  */
  @import "bootstrap";
 img.recipe-show {
@@ -19,16 +18,22 @@ width: 400px;
 height: auto;
 }
 
+h1{
+	text-align: center;
+	color: #4B515D;
+}
 .recipe-box{
-	box-shadow: 5px 10px #888888;
-	height: 500px;
+	box-shadow: 5px 5px #4B515D;
+	height: 400px;
 	position: relative;
-	background: #bdc3c7;
+	background: #dbdbdb;
+	border-radius: 30px;
 }
 img.recipe-index {
 	width: 100%;
 	height: 70%;
 	object-fit: cover;
+	border-radius: 30px;
 }
 .recipe-box ul {
 	list-style-type: none;
@@ -37,4 +42,12 @@ img.recipe-index {
 }
 .recipe-box li:first-child{
 	font-size: 24px;
+}
+.navbar-nav > li{
+
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.btn-dark{
+	background-color:#4B515D;
 }
