@@ -2,7 +2,7 @@
 <html>
   <head>
 
-    <title>RecipeApp</title>
+    <title>Recipies Made Easy</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -26,11 +26,12 @@
         <%= link_to "Add Recipe", new_recipe_path, class:"navbar-brand" %>
     </ul>
     <!--Search bar-->
-    
+    <ul class="navbar-nav ml-auto">
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Recipe" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+  </ul>
   </div>
 </nav>
 
