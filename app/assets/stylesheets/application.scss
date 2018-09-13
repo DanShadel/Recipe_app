@@ -16,10 +16,17 @@ img.recipe-show {
 
 width: 400px;
 height: auto;
+margin-left: auto;
+margin-right: auto;
+display: block;
 }
 
 h1{
 	text-align: center;
+	color: #4B515D;
+}
+h3{
+	
 	color: #4B515D;
 }
 .recipe-box{
@@ -48,6 +55,9 @@ img.recipe-index {
 	padding-left: 5px;
 	padding-right: 5px;
 }
-.btn-dark{
-	background-color:#4B515D;
+.btn-outline-dark{
+	color:#4B515D;
+}
+.form-group{
+	text-align: center;
 }

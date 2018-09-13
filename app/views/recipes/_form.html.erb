@@ -1,4 +1,4 @@
-<%= form_with(model: recipe, local: true) do |form| %>
+<%= simple_form_for(@recipe, local: true) do |form| %>
   <% if recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -13,80 +13,52 @@
 
 
 
+  <%= form.input :title, placeholder: "Title", label: "Title", id: :recipe_title %>
+  <%= form.input :description, placeholder: "Your description here!", label: "Description", id: :recipe_description  %>
 
 
-
-
-<%= simple_form_for(@recipe) do |f| %>
-    <%= f.input :title, placeholder: "Title", label: "Title" %>
-      <%= form.text_field :title, id: :recipe_title %>
-
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :recipe_description %>
-
-
-
-  <%end%>
-
-
-
+  <br>
   <div class="form-group">
-
-
   <h3>Add Ingredients</h3>
     <%= form.nested_fields_for :ingredients do |ingredient| %>
       <%= ingredient.text_field :content %>
-      <%= ingredient.remove_nested_fields_link %>
+      <%= ingredient.remove_nested_fields_link "Delete", class: "btn btn-outline-dark btn-sm" %>
     <% end %>
-      <%= form.add_nested_fields_link :ingredients %>
-
-
+    <%= form.add_nested_fields_link :ingredients %>
   </div>
 
 
  
 
-
+  <br>
   <div class="form-group">
-
-
-  <h3>Add Steps</h3>
-
-
-    <%= form.nested_fields_for :steps do |step| %>
-
-
-      <%= step.text_field :direction %>
-
-
-      <%= step.remove_nested_fields_link %>
-
-
-    <% end %>
-
-
+     <h3>Add Steps</h3>
+      <%= form.nested_fields_for :steps do |step| %>
+        <%= step.text_field :direction %>
+        <%= step.remove_nested_fields_link "Delete", class: "btn btn-outline-dark btn-sm"%>
+      <% end %>
       <%= form.add_nested_fields_link :steps %>
-
-
   </div>
 
 
 
-
+  <br>
   <div class="form-group">
-    <%= form.file_field :image %>
-
     <% if @recipe.image? %>
       <%= image_tag @recipe.image.url, class: "recipe-show" %>
+      <br>
       <%= form.check_box :remove_image %>
        Remove Image
    <% end %>
+   <br>
+   <%= form.file_field :image %>
   </div>
 </div>
 
 
 
   <div class="actions">
-    <%= form.submit :Submit, class: "btn btn-dark" %>
+    <%= form.submit :Submit, class: "btn btn-outline-dark" %>
   </div>
-<% end %>
+<%end%>
+
