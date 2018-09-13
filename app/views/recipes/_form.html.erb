@@ -1,4 +1,5 @@
 <%= simple_form_for(@recipe, local: true) do |form| %>
+
   <% if recipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
@@ -19,7 +20,7 @@
 
   <br>
   <div class="form-group">
-  <h3>Add Ingredients</h3>
+    <h3>Add Ingredients</h3>
     <%= form.nested_fields_for :ingredients do |ingredient| %>
       <%= ingredient.text_field :content %>
       <%= ingredient.remove_nested_fields_link "Delete", class: "btn btn-outline-dark btn-sm" %>
@@ -34,6 +35,7 @@
   <div class="form-group">
      <h3>Add Steps</h3>
       <%= form.nested_fields_for :steps do |step| %>
+
         <%= step.text_field :direction %>
         <%= step.remove_nested_fields_link "Delete", class: "btn btn-outline-dark btn-sm"%>
       <% end %>
@@ -53,12 +55,15 @@
    <br>
    <%= form.file_field :image %>
   </div>
-</div>
+
 
 
 
   <div class="actions" style="text-align: center;">
-    <%= form.submit :Submit, class: "btn btn-outline-dark" %>
+    <%= form.button :submit, class: "btn btn-outline-dark" %>
   </div>
+
+  <%= form.error :base %>
+
 <%end%>
 

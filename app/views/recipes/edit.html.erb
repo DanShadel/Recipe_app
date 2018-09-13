@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
 <div style="padding-left: 6px">
 <%= link_to 'Back', recipes_path, class: "btn btn-outline-dark" %>
+<%= link_to 'Show', @recipe, class: "btn btn-outline-dark" %>
 </div>
 <div class="container">
 	<h1>Editing Recipe</h1>
 
 	<%= render 'form', recipe: @recipe %>
 	<br>
-	<%= link_to 'Show', @recipe, class: "btn btn-outline-dark" %>
-	<%= link_to 'Back', recipes_path, class: "btn btn-outline-dark" %>
 </div>
