@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   # GET /recipes
   # GET /recipes.json
   def index
@@ -40,14 +40,18 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   # PATCH/PUT /recipes/1.json
   def update
-    respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe }
-      else
-        format.html { render :edit }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+    if @recipe.user == current_user
+      respond_to do |format|
+        if @recipe.update(recipe_params)
+          format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
+          format.json { render :show, status: :ok, location: @recipe }
+        else
+          format.html { render :edit }
+          format.json { render json: @recipe.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      format.html {redirect_to about_path, notice: 'You didn\'t make this recipe!'}
     end
   end
 

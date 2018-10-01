@@ -6,4 +6,6 @@ class Recipe < ApplicationRecord
 	accepts_nested_attributes_for :steps, allow_destroy: true
 	
 	mount_uploader :image, ImageUploader
+
+	has_one :user
 end

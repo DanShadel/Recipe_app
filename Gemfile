@@ -22,7 +22,7 @@ gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'nested_form_fields'
 gem 'carrierwave', '~> 1.0'
-
+gem 'devise', '~> 4.5' 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
