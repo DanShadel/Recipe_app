@@ -22,6 +22,7 @@ gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'nested_form_fields'
 gem 'carrierwave', '~> 1.0'
+gem 'devise', '~> 4.5' 
 gem 'fog-aws'
 
 group :development, :test do

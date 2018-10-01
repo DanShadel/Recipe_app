@@ -24,13 +24,34 @@
    		</li>
       <li class="navbar-nav active" >
         <%= link_to "Add Recipe", new_recipe_path, class:"navbar-brand" %>
+      </li>
+
     </ul>
     <!--Search bar-->
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav mr-auto ml-auto">
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Recipe" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+  </ul>
+  <!-- Account stuff -->
+  <ul class="navbar-nav ml-auto">
+    <% if user_signed_in? %>
+
+        <li class="navbar-nav active">
+        <%= link_to('My Recipies', pages_userRecipes_path, class:"navbar-brand")  %>  
+        </li>
+
+        <li class="navbar-nav active">
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"navbar-brand") %>        
+        </li>
+        
+      <% else %>
+        <li class="navbar-nav active">
+        <%= link_to('Login', new_user_session_path, class:"navbar-brand")  %>  
+        </li>
+      <% end %>
+
   </ul>
   </div>
 </nav>

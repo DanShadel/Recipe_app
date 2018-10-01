@@ -12,8 +12,8 @@
       <% end %>
       
        <ul>
-       
-       <li><%= recipe.title %></li>
+       <li><%= recipe.user.email %> </li>
+      <li><%= recipe.title %></li>
       <li><%= recipe.description %></li>
       <li><%= link_to 'Show', recipe, class: "btn btn-dark" %>
       <%= link_to 'Edit', edit_recipe_path(recipe), class: "btn btn-dark" %>
