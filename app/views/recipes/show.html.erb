@@ -9,6 +9,9 @@
 <h1>
   <%= @recipe.title %>
 </h1>
+<h4>
+	<%="By #{@recipe.user.username}"%>
+</h4>
 <br>
 <div class="row">
 	<div class="col" style="text-align: center;">
