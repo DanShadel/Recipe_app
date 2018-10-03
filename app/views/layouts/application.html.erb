@@ -48,25 +48,32 @@
 
   <!-- Account stuff -->
   <ul class="navbar-nav ml-auto">
-    <% if user_signed_in? %>
-        <li class="navbar-brand">
-         <%= "Hello, #{current_user.username}"%>
-        </li>
-        <li class="navbar-nav active">
-        <%= link_to('My Recipies', pages_userRecipes_path, class:"navbar-brand")  %>  
-        </li>
+   
+       
 
-        <li class="navbar-nav active">
-        <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"navbar-brand") %>        
-        </li>
-        
-      <% else %>
-        <li class="navbar-nav active">
-        <%= link_to('Login', new_user_session_path, class:"navbar-brand")  %>  
-        </li>
-      <% end %>
+        <li class="nav-item dropdown">
 
-  </ul>
+          <a class="nav-link dropdown toggle" href="#" id ="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+         </a>
+
+
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if user_signed_in? %>
+
+            <%= link_to('My Recipies', pages_userRecipes_path, class:"dropdown-item")  %>  
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"dropdown-item") %> 
+
+            <%= "      Hello, #{current_user.username}"%>       
+
+            <% else %>
+       
+              <%= link_to('Login', new_user_session_path, class:"dropdown-item")  %>  
+      
+                 <% end %>
+          </div>
+        </li>
+     </ul>
   </div>
 </nav>
 
