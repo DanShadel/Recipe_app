@@ -4,6 +4,10 @@ class PagesController < ApplicationController
 	def error
 	end
 	def userRecipes
-    @recipes = Recipe.all
-  end
+    @recipes = Recipe.where(user: current_user)
+    render "recipes/index"
+	end
+	def search
+	end
+
 end
